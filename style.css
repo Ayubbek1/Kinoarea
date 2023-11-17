@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  background: #1E2538;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+
+}
+
+.leftheader {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+header {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  gap: 50px;
+}
+
+.search:hover {
+  cursor: pointer;
+}
+
+.rightheader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sigin {
+  width: 138px;
+  height: 53px;
+  border-radius: 10px;
+  background: #3657CB;
+  box-shadow: 0px 0px 15px 0px rgba(72, 113, 255, 0.80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.now_on_kino_filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.now_on_kino_filter h2 {
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.line {
+  height: 2px;
+  width: 100px;
+  background: rgb(255, 255, 255);
+}
+
+.now_on_kino {
+  margin-top: 50px;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.new_films{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows:400px 400px ;
+  gap: 20px;
+}
+.poster{
+  
+  height: calc(100% - 50px);
+  background:url("./img/movie_poster.png")  no-repeat;
+  position: relative;
+}
+.see_all{
+  text-align: center;
+  padding: 20px 46px;    
+  background: none;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.center{
+  display: flex;
+  justify-content: center;
+}
+.rate{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 5px 15px;
+  background: #89CB36;
+  border-radius: 4px;
+}
