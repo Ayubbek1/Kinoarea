@@ -3,6 +3,9 @@ let new_films = document.querySelector(".new_films")
 let see_all = document.querySelector(".see_all")
 let logo = document.querySelector('.logo')
 let header = document.querySelector("header")
+let swiper_box = document.querySelector("#swiper_box")
+let trailers = document.querySelector("#trailers")
+let iframe = document.querySelector("iframe")
 let body = document.body
 let genresi = []
 let nmb = -1
@@ -29,8 +32,9 @@ see_all.onclick = (e) => {
                 behavior: "smooth",
                 block: "start"
             })
-        }, 250);
+        }, 350);
         togle = false
+        see_all.innerHTML="Закрыть"
     }else{
         nmb = -1
         setTimeout(() => {
@@ -47,8 +51,9 @@ see_all.onclick = (e) => {
                 behavior: "smooth",
                 block: "start"
             })
-        }, 250);
+        }, 350);
         togle = true
+        see_all.innerHTML="Все новинки"
 
     }
     
@@ -107,7 +112,12 @@ function reload(arr, place) {
                 });
             }
 
-            
+            swiper_box.innerHTML+=`
+            <div class="swiper-slide">
+            <img class="joc" src=https://image.tmdb.org/t/p/w500${result.poster_path} alt="">
+            <div class="title">${result.title}</div>
+            <div class="genre">${genre_div.innerHTML}</div>
+          </div>`
             place.innerHTML += `
             <div id=${result.id} class="relative">
             <img src=https://image.tmdb.org/t/p/w500${result.poster_path} class="poster">
@@ -116,6 +126,25 @@ function reload(arr, place) {
             <div class="title">${result.title}</div>
           </div>
             `
+            trailers.innerHTML +=`
+            <div id="trailer" class="swiper-slide">
+            <img id="${result.id}" src=https://image.tmdb.org/t/p/w500${result.poster_path} alt="">
+            <p class="slide_name">${result.title}</p>
+          </div>
+            `
+            let trailers_divs = trailers.querySelectorAll("div")
+            trailers_divs.forEach(div => {
+                div.onclick = () =>{
+                    fetch(`https://api.themoviedb.org/3/movie/${div.firstElementChild.id}/videos`, {
+                        headers: {
+                            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDA0Nzg2M2Y2NmE2Y2E2YWNhMTMwODA0NTdkNjAzYyIsInN1YiI6IjY1NTYzOGQ2YjU0MDAyMTRkODJiYzllMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hD9JO5en4JCEC89iPG4ULbIKrobJ0nUCNlZTWJX3p2s"
+                        }
+                    })
+                        .then(res=>res.json())
+                        .then(res=>iframe.src = `https://www.youtube.com/embed/${res.results[0].key}`)
+                    
+                }
+            });
             let bg = document.querySelector(".bg")
             let box = document.querySelectorAll(".relative")
             box.forEach(element => {

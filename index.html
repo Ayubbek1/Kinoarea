@@ -1,72 +1,156 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <title>Kinoarea</title>
-  </head>
-  <body>
-    
-    <div class="container">
-      <header>
-        <div class="leftheader flex">
-          <a class="logo">
-            <img src="/img/cinema 1.png" alt="">
-            <img src="/img/Kinoarea.png" alt="">
-          </a>
-          <img src="/img/   .png" alt="">
-        </div>
-        <nav>
-          <a href="">Афиша</a>
-          <a href="">Медиа</a>
-          <a href="">Фильмы</a>
-          <a href="">Актёры</a>
-          <a href="">Новости</a>
-          <a href="">Подборки</a>
-          <a href="">Категории</a>
-        </nav>
-        <div class="rightheader">
-          <img class="search" src="/img/Поиск.png" alt="">
-          <div class="sigin">Войти</div>
-        </div>
-      </header>
-      <div class="now_on_kino">
-        <div class="now_on_kino_filter">
-          <h2>Сейчас в кино</h2>
-          <div class="line"></div>
-          <div class="filter">
-            <p>Все</p>
-            <p>Боевики</p>
-            <p>Приключения</p>
-            <p>Комедии</p>
-            <p>Фантастика</p>
-            <p>Триллеры</p>
-            <p>Драма</p>
-          </div>
-        </div>
-        <div class="new_films">
-          <div class="relative">
-            <img src="./img/movie_poster.png" class="poster">
-              <div class="rate">9.9</div>
-            </img>
-            <div class="title">Pending</div>
-            <div class="genres">
-              <div class="genre">Pending</div>
-              <div class="genre">,Pending</div>
-            </div>
 
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <title>Kinoarea</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <div class="leftheader flex">
+        <a class="logo">
+          <img src="/img/cinema 1.png" alt="">
+          <img src="/img/Kinoarea.png" alt="">
+        </a>
+        <img src="/img/   .png" alt="">
+      </div>
+      <nav>
+        <a href="">Афиша</a>
+        <a href="">Медиа</a>
+        <a href="">Фильмы</a>
+        <a href="">Актёры</a>
+        <a href="">Новости</a>
+        <a href="">Подборки</a>
+        <a href="">Категории</a>
+      </nav>
+      <div class="rightheader">
+        <img class="search" src="/img/Поиск.png" alt="">
+        <div class="sigin">Войти</div>
+      </div>
+    </header>
+    <div class="now_on_kino">
+      <div class="now_on_kino_filter">
+        <h2>Сейчас в кино</h2>
+        <div class="line"></div>
+        <div class="filter">
+          <p>Все</p>
+          <p>Боевики</p>
+          <p>Приключения</p>
+          <p>Комедии</p>
+          <p>Фантастика</p>
+          <p>Триллеры</p>
+          <p>Драма</p>
         </div>
-        <div class="center">
-          <button id="anchort" class="see_all">Все новинки</button>
+      </div>
+      <div class="new_films">
+        <div class="relative">
+          <img src="./img/movie_poster.png" class="poster">
+          <div class="rate">9.9</div>
+          </img>
+          <div class="title">Pending</div>
+          <div class="genres">
+            <div class="genre">Pending</div>
+            <div class="genre">,Pending</div>
+          </div>
 
         </div>
       </div>
+      <div class="center">
+        <button id="anchort" class="see_all">Все новинки</button>
+      </div>
     </div>
+    <div class="trailers_box">
+      <div class="trailers_text">
+        <h2>Новые трейлеры</h2>
+        <a href="#">
+          <p>Все трейлеры</p>
+          <img src="/img/Arrow 1.png" alt="">
+        </a>
+      </div>
+      <iframe width="100%" height="662px" src="https://www.youtube.com/embed/KGsJHYSzAKM"></iframe>
+      <div class="trailers_rating">
+        <div class="trailer_name">
+          <h2>Форсаж 9</h2><img src="/img/   .png" alt="">
+        </div>
+        <div class="likes_dislikes">
+          <div><img src="/img/Лайк.png" alt="">
+            <p>111</p>
+          </div>
+          <div><img src="/img/Дисайк.png" alt="">
+            <p>666</p>
+          </div>
+        </div>
+      </div>
+      <div class="trailer_slider">
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div id="trailers" class="swiper-wrapper">
+            <!-- Slides -->
 
-    <script type="module" src="/main.js"></script>
-  </body>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popular_films">
+      <div class="now_on_kino_filter">
+        <h2>Популярные фильмы</h2>
+        <div class="line"></div>
+        <div class="filter">
+          <p>Всё время</p>
+          <p>2020</p>
+          <p>2019</p>
+          <p>2018</p>
+          <p>2017</p>
+          <p>2016</p>
+          <p>2015</p>
+        </div>
+      </div>
+      <div class="popular_films_swiper">
+        <div class="swiper mySwiper">
+          <div id="swiper_box" class="swiper-wrapper">
+            
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="/main.js"></script>
+
+  <script>
+    
+    var swiper = new Swiper('.swiper', {
+      slidesPerView: 3,
+      direction: getDirection(),
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        resize: function () {
+          swiper.changeDirection(getDirection());
+        },
+      },
+    });
+
+    function getDirection() {
+      var windowWidth = window.innerWidth;
+      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+
+      return direction;
+    }
+  </script>
+</body>
+
 </html>
