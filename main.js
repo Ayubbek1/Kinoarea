@@ -9,6 +9,10 @@ let iframe = document.querySelector("iframe")
 let body = document.body
 let genresi = []
 let nmb = -1
+let filter_p = document.querySelector(".filter p")
+
+console.log();
+filter_p.getAttribute("name")
 logo.onclick = () => {
     new_films.scrollIntoView({
         behavior: "smooth",
@@ -30,7 +34,7 @@ see_all.onclick = (e) => {
         setTimeout(() => {
             see_all.scrollIntoView({
                 behavior: "smooth",
-                block: "start"
+                block: "end"
             })
         }, 350);
         togle = false
@@ -95,6 +99,7 @@ fetch(BASE_URL + "/movie/now_playing", {
 function reload(arr, place) {
 
     place.innerHTML = ""
+    // trailers.innerHTML=
     console.log(arr);
     arr.results.forEach(result => {
         nmb++
@@ -112,12 +117,12 @@ function reload(arr, place) {
                 });
             }
 
-            swiper_box.innerHTML+=`
-            <div class="swiper-slide">
-            <img class="joc" src=https://image.tmdb.org/t/p/w500${result.poster_path} alt="">
-            <div class="title">${result.title}</div>
-            <div class="genre">${genre_div.innerHTML}</div>
-          </div>`
+        //     swiper_box.innerHTML+=`
+        //     <div class="swiper-slide">
+        //     <img class="joc" src=https://image.tmdb.org/t/p/w500${result.poster_path} alt="">
+        //     <div class="title">${result.title}</div>
+        //     <div class="genre">${genre_div.innerHTML}</div>
+        //   </div>`
             place.innerHTML += `
             <div id=${result.id} class="relative">
             <img src=https://image.tmdb.org/t/p/w500${result.poster_path} class="poster">
