@@ -5,10 +5,13 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <title>Kinoarea</title>
+  <link rel="stylesheet" href="/media.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
@@ -74,14 +77,11 @@
         </div>
       </div>
       <div class="trailer_slider">
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div id="trailers" class="swiper-wrapper">
-            <!-- Slides -->
+        <div id="trailers">
+          <!-- Slides -->
 
-            
 
-          </div>
+
         </div>
       </div>
     </div>
@@ -93,14 +93,14 @@
           <p>За месяц</p>
           <p>За неделю</p>
         </div>
-      </div> 
+      </div>
       <div class="popular_person_main">
         <div class="top_two">
           <p class="top_two_corner">1-е место</p>
           <div class="top_two_text">
-              <p>Квентин Тарантино</p>
-              <p>Quentin Tarantino</p>
-              <p>57 лет</p>
+            <p>Квентин Тарантино</p>
+            <p>Quentin Tarantino</p>
+            <p>57 лет</p>
           </div>
         </div>
         <div class="top_two">
@@ -144,17 +144,42 @@
             </span>
             <p>6-е место</p>
           </div>
+          <div>
+            <span class="popular_person_top_text">
+              <p>Тинто Брасс</p>
+              <p>Tinto Brass</p>
+              <p>87 лет</p>
+            </span>
+            <p>6-е место</p>
+          </div>
+          <div>
+            <span class="popular_person_top_text">
+              <p>Тинто Брасс</p>
+              <p>Tinto Brass</p>
+              <p>87 лет</p>
+            </span>
+            <p>6-е место</p>
+          </div>
+          <div>
+            <span class="popular_person_top_text">
+              <p>Тинто Брасс</p>
+              <p>Tinto Brass</p>
+              <p>87 лет</p>
+            </span>
+            <p>6-е место</p>
+          </div>
         </div>
-
-      </div>     
+  
+      </div>
     </div>
     <div class="ad">
       <div class="blue_ad">
         <div>
           <h2>Подпишитесь на E-mail рассылку</h2>
-          <h3>Если хотиет быть в курсе последних новостей и новинок кино - <br> заполните форму ниже и оформите бесплатную E-mail рассылку! </h3>
+          <h3>Если хотиет быть в курсе последних новостей и новинок кино - <br> заполните форму ниже и оформите бесплатную
+            E-mail рассылку! </h3>
         </div>
-
+  
       </div>
     </div>
     <footer>
@@ -168,61 +193,16 @@
           <a href="">Рецензии</a>
           <a href="">Катало фильмовг</a>
         </span>
-        <p>2020 © Kinoarea.  Все права защищены</p>
+        <p>2020 © Kinoarea. Все права защищены</p>
         <p>Политика конфиденциальности</p>
       </div>
     </footer>
-
-    <!-- <div class="popular_films">
-      <div class="now_on_kino_filter">
-        <h2>Популярные фильмы</h2>
-        <div class="line"></div>
-        <div class="filter">
-          <p>Всё время</p>
-          <p>2020</p>
-          <p>2019</p>
-          <p>2018</p>
-          <p>2017</p>
-          <p>2016</p>
-          <p>2015</p>
-        </div>
-      </div>
-      <div class="popular_films_swiper">
-        <div class="swiper mySwiper">
-          <div id="swiper_box" class="swiper-wrapper">
-            
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-    </div> -->
+  
+    </div>
   </div>
+  <script type="module" src="/modules/https.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/main.js"></script>
-
-  <script>
-    
-    var swiper = new Swiper('.swiper', {
-      slidesPerView: 3,
-      direction: getDirection(),
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      on: {
-        resize: function () {
-          swiper.changeDirection(getDirection());
-        },
-      },
-    });
-
-    function getDirection() {
-      var windowWidth = window.innerWidth;
-      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
-
-      return direction;
-    }
-  </script>
   <script src="/modules/header.js"></script>
 </body>
 

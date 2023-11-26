@@ -1,0 +1,36 @@
+@media only screen and (max-width: 600px) {
+
+    nav{
+        display: none;
+    }
+    .container{
+        max-width: 600px;
+        padding: 20px;
+        
+    }
+    .filter{
+        display: none;
+    }
+    .new_films {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 400px 400px;
+        column-gap: 30px;
+        row-gap: 80px;
+        margin: 50px 0 100px;
+    }
+    .popular_person_top div {
+        font-size: 10px;
+    }
+    iframe{
+        height: 300px;
+    }
+  }
+  
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Стили для планшетов */
+  }
+  
+  @media only screen and (min-width: 1025px) {
+    /* Стили для настольных компьютеров */
+  }

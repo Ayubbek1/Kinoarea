@@ -9,6 +9,8 @@
 
 body {
   background: #1E2538;
+
+
 }
 
 .container {
@@ -94,7 +96,21 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 400px;
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #ecf0f1;
 }
+
+.filter::-webkit-scrollbar {
+  width: 8px;
+}
+.filter::-webkit-scrollbar-thumb {
+  background-color: #0f527e;
+  border-radius: 10px;
+}
+
 
 .new_films {
   display: grid;
@@ -156,6 +172,8 @@ nav {
 }
 
 body {
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #ecf0f1;
   position: relative;
   /* height: 100%; */
   background: #1E2538;
@@ -165,7 +183,19 @@ body {
   background-repeat: no-repeat;
   transition: .4s linear;
 }
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #0f527e;
+  border-radius: 10px;
+}
 
+body::-webkit-scrollbar-track {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+
+}
 body::before {
   content: "";
   display: block;
@@ -331,6 +361,8 @@ iframe {
   height: 333px;
   border-radius: 10px;
   background: #1B2133;
+  overflow-y: scroll;
+  gap: 20px;
 }
 .top_two_corner{
   position: absolute;
@@ -341,6 +373,7 @@ iframe {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
 }
 .popular_person_top{
   padding: 30px;
@@ -416,4 +449,53 @@ footer div{
 }
 .j{
   width: 300px;
+}
+#trailers{
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 40px;
+  height: 400px;
+  align-items: center;
+}
+#trailers {
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #ecf0f1;
+  
+}
+#trailers::-webkit-scrollbar {
+  width: 5px;
+}
+#trailers::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #0f527e;
+  border-radius: 10px;
+}
+
+#trailers::-webkit-scrollbar-track {
+  width: 5px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+
+}
+.shake{
+  animation: shake 0.5s infinite;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+.popular_person_top::-webkit-scrollbar {
+  width: 1px;
 }
