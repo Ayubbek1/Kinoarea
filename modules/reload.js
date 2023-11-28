@@ -10,7 +10,9 @@ let popular_person_top = document.querySelector(".popular_person_top")
 let trailers = document.querySelector("#trailers")
 let iframe = document.querySelector("iframe")
 let header = document.querySelector("header")
-let filter = document.querySelector(".filter")
+
+see_all.classList.remove("hide")
+
 let body = document.body
 let nmb = -1
 see_all.onclick = () => {
@@ -19,13 +21,12 @@ see_all.onclick = () => {
         getData("/genre/movie/list")
             .then(resp => {
                 getData("/movie/now_playing")
-                    .then(res => reload(res, new_films, resp))
+                    .then(res => reload(res, new_films,resp,20))
             })
-
         setTimeout(() => {
             see_all.scrollIntoView({
                 behavior: "smooth",
-                block: "end"
+                block: "start"
             })
         }, 350);
         togle = false
@@ -34,10 +35,10 @@ see_all.onclick = () => {
         nmb = -1
         setTimeout(() => {
             getData("/genre/movie/list")
-                .then(resp => {
-                    getData("/movie/now_playing")
-                        .then(res => reload(res, new_films, resp))
-                })
+            .then(resp => {
+                getData("/movie/now_playing")
+                    .then(res => reload(res, new_films,resp,8))
+            })
         }, 1000);
         setTimeout(() => {
             header.scrollIntoView({
@@ -55,43 +56,50 @@ logo.onclick = () => {
         block: "start"
     })
 }
-export function reload(arr, place, genres) {
+
+export function reload(arr, place, genres,times) {
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    trailers.innerHTML = ""
     place.innerHTML = ""
-    arr.results.forEach(result => {
+    arr.results.slice(0,times).forEach(result => {
         nmb++
         trailers.innerHTML += `
-        <div id="trailer" class="swiper-slide">
-        <img id="${result.id}" src=https://image.tmdb.org/t/p/w500${result.poster_path} alt="">
+        <div id="trailer">
+        <img id="${result.id}" src=https://image.tmdb.org/t/p/w780${result.backdrop_path} alt="">
         <p class="slide_name">${result.title}</p>
+        <img id="play" src="/img/play.png" alt="">
       </div>
         `
         let trailers_divs = trailers.querySelectorAll("div")
         trailers_divs.forEach(div => {
             div.onclick = () => {
+                let trailer_name = document.querySelector("#trailer_name")
+                trailer_name.innerHTML = div.lastElementChild.previousElementSibling.innerHTML
                 getData(`/movie/${div.firstElementChild.id}/videos`)
                     .then(res => {
+
                         iframe.src = `https://www.youtube.com/embed/${res.results[getRandomInt(0, res.results.length - 1)].key}`
+                        
                     })
 
             }
         });
-        if (nmb < 8) {
-            let genre_div = document.createElement("div")
-            genre_div.classList.add("genre")
+
+        let genre_div = document.createElement("div")
+        genre_div.classList.add("genre")
 
 
-            if (genres.length !== 0) {
-                genres.genres.forEach(element => {
-                    // console.log(element.id , id_genre)
-                    if (element.id == result.genre_ids[0]) {
-                        genre_div.innerHTML = element.name
-                    }
-                });
-            }
-            place.innerHTML += `
+        if (genres.length !== 0) {
+            genres.genres.forEach(element => {
+                // console.log(element.id , id_genre)
+                if (element.id == result.genre_ids[0]) {
+                    genre_div.innerHTML = element.name
+                }
+            });
+        }
+        place.innerHTML += `
             <div id=${result.id} class="relative">
             <div class="blue_ad hide">
             <span id=${result.id} class="card">карточка фильма</span>
@@ -103,26 +111,26 @@ export function reload(arr, place, genres) {
           </div>
             `
 
-            let bg = document.querySelector(".bg")
-            let box = document.querySelectorAll(".relative")
-            box.forEach(element => {
-                element.append(genre_div)
-                element.onmouseenter = () => {
-                    arr.results.forEach(result => {
-                        if (element.id == result.id) {
-                            setTimeout(() => {
-                                body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`
-                            }, 500);
-                        }
-                    })
-                }
-                element.onmouseleave = () => {
-                    body.style.backgroundImage = "url(/img/joper.png)"
+        let bg = document.querySelector(".bg")
+        let box = document.querySelectorAll(".relative")
+        box.forEach(element => {
+            element.append(genre_div)
+            element.onmouseenter = () => {
+                arr.results.forEach(result => {
+                    if (element.id == result.id) {
+                        setTimeout(() => {
+                            body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${result.backdrop_path})`
+                        }, 500);
+                    }
+                })
+            }
+            element.onmouseleave = () => {
+                body.style.backgroundImage = "url(/img/joper.png)"
 
-                }
-            });
+            }
+        });
 
-        }
+
 
         getData(`/person/popular`)
             .then(res => {
@@ -148,17 +156,5 @@ export function reload(arr, place, genres) {
             location.assign(`/pages/film_page/?id=${card.id}`)
         }
     });
-    filter.innerHTML=""
-    genres.genres.forEach(genre => {
-        filter.innerHTML+=`<p id="${genre.id}">${genre.name}</p>`
-        let filter_ps = filter.querySelectorAll(".filter p")
-        filter_ps.forEach(element => {
-            element.onclick = () =>{
-                console.log(element.id);
-                fetch(`https://api.themoviedb.org/3/discover/movie?api_key=0d047863f66a6ca6aca13080457d603c&with_genres=28`)
-                .then(res=>res.json())
-                .then(res=>console.log(res))
-            }
-        });
-    });
+
 }

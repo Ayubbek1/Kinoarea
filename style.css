@@ -106,6 +106,7 @@ nav {
 .filter::-webkit-scrollbar {
   width: 8px;
 }
+
 .filter::-webkit-scrollbar-thumb {
   background-color: #0f527e;
   border-radius: 10px;
@@ -183,9 +184,11 @@ body {
   background-repeat: no-repeat;
   transition: .4s linear;
 }
+
 body::-webkit-scrollbar {
   width: 8px;
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: #0f527e;
   border-radius: 10px;
@@ -196,6 +199,7 @@ body::-webkit-scrollbar-track {
   border-radius: 10px;
 
 }
+
 body::before {
   content: "";
   display: block;
@@ -317,8 +321,9 @@ iframe {
 }
 
 #trailer {
-  width: 200px;
   height: 300px;
+  flex-shrink: 0;
+  position: relative;
 }
 
 #trailer img {
@@ -364,29 +369,34 @@ iframe {
   overflow-y: scroll;
   gap: 20px;
 }
-.top_two_corner{
+
+.top_two_corner {
   position: absolute;
   top: 12px;
   left: 17px;
 }
-.popular_person_top div{
+
+.popular_person_top div {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
 }
-.popular_person_top{
+
+.popular_person_top {
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.popular_person_top_text{
+
+.popular_person_top_text {
   display: flex;
   flex-direction: column;
-  gap:3px;
+  gap: 3px;
 }
-.ad{
+
+.ad {
   width: 100%;
   height: 548px;
   background-image: url(/img/ad.png);
@@ -394,7 +404,8 @@ iframe {
   position: relative;
 
 }
-.blue_ad{
+
+.blue_ad {
   position: absolute;
   border-radius: 10px;
   width: 100%;
@@ -405,67 +416,79 @@ iframe {
   flex-direction: column;
   justify-content: center;
 }
-footer{
+
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 61px 0;
 }
-footer div{
+
+footer div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 34px;
 }
-.hide{
- opacity: 0;
+
+.hide {
+  opacity: 0;
   transition: 1s ease;
 }
-.relative:hover .hide{
+
+.relative:hover .hide {
   transition: 1s ease;
 
   opacity: 1;
 }
-.blue_ad span{
+
+.blue_ad span {
   color: #3657CB;
   border-radius: 10px;
   padding: 20px;
   background: rgb(255, 255, 255);
 }
-.lil_cont{
+
+.lil_cont {
   width: 800px;
   margin: 0 auto;
 }
-.movie_info_box{
+
+.movie_info_box {
   display: flex;
   gap: 30px;
   align-items: center;
 }
-.movie_info_box_right{
+
+.movie_info_box_right {
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: center;
 }
-.j{
+
+.j {
   width: 300px;
 }
-#trailers{
+
+#trailers {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
   gap: 40px;
-  height: 400px;
   align-items: center;
 }
+
 #trailers {
   scrollbar-width: thin;
   scrollbar-color: #3498db #ecf0f1;
-  
+
 }
+
 #trailers::-webkit-scrollbar {
   width: 5px;
 }
+
 #trailers::-webkit-scrollbar-thumb {
   width: 5px;
   background-color: #0f527e;
@@ -478,19 +501,26 @@ footer div{
   border-radius: 10px;
 
 }
-.shake{
+
+.shake {
   animation: shake 0.5s infinite;
 }
+
 @keyframes shake {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
+
   25% {
     transform: translateX(-5px);
   }
+
   50% {
     transform: translateX(5px);
   }
+
   75% {
     transform: translateX(-5px);
   }
@@ -498,4 +528,94 @@ footer div{
 
 .popular_person_top::-webkit-scrollbar {
   width: 1px;
+}
+
+.search_modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.513);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.search_input {
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 32px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.search_input input {
+  color: #000;
+  outline: none;
+  border: 0;
+  width: 100%;
+}
+
+.search_input div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.search_modal_main {
+  width: 600px;
+  height: 100vh;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.finded_films {
+  height: 600px;
+  overflow-x: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.finded_films_item{
+  border-radius: 10px;
+  background: #1E2538;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+}
+
+.finded_films_item div{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.finded_films_item_text{
+  display: flex;
+  flex-direction: column;
+  gap: 5px !important;
+  align-items: unset !important;
+}
+.modal_exit{
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: -50px;
+}
+#play{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  translate: -50% -50%;
+  width: unset !important;
+  height: unset !important;
 }
