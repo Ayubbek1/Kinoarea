@@ -183,6 +183,7 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: .4s linear;
+  backdrop-filter: brightness(0.3);
 }
 
 body::-webkit-scrollbar {
@@ -463,8 +464,7 @@ footer div {
 .movie_info_box_right {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  align-items: center;
+  gap: 20px;
 }
 
 .j {
@@ -568,7 +568,7 @@ footer div {
 .search_modal_main {
   width: 600px;
   height: 100vh;
-  margin:0 auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -584,7 +584,8 @@ footer div {
   flex-direction: column;
   gap: 20px;
 }
-.finded_films_item{
+
+.finded_films_item {
   border-radius: 10px;
   background: #1E2538;
   display: flex;
@@ -593,29 +594,182 @@ footer div {
   padding: 15px 10px;
 }
 
-.finded_films_item div{
+.finded_films_item div {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.finded_films_item_text{
+
+.finded_films_item_text {
   display: flex;
   flex-direction: column;
   gap: 5px !important;
   align-items: unset !important;
 }
-.modal_exit{
+
+.modal_exit {
   background: none;
   border: 0;
   position: absolute;
   top: 0;
   right: -50px;
 }
-#play{
+
+#play {
   position: absolute;
   top: 40%;
   left: 50%;
   translate: -50% -50%;
   width: unset !important;
   height: unset !important;
+}
+
+.path {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  justify-content: flex-start;
+}
+
+.path p:nth-child(1) {
+  color: #4F5B7C;
+
+}
+
+.path p:nth-child(3) {
+  color: #4F5B7C;
+}
+
+#myPieChart {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+#name_info {
+  font-size: 40px;
+}
+
+#description_info {
+  line-height: 166.5%;
+}
+
+#rate {
+  width: 50px;
+  text-align: center;
+}
+
+#bottom_info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#bottom_info button {
+  padding: 20px 30px;
+  align-items: center;
+  gap: 20px;
+  display: flex;
+  background: none;
+  border: white 1px solid;
+  border-radius: 10px;
+}
+
+.ratings {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#main_movie_info {
+  margin-top: 20px;
+}
+
+#a {
+  display: flex;
+  gap: 10px;
+}
+
+.main_role {
+  margin-top: 50px;
+}
+
+.log_in_modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.513);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transition: 1s ease;
+}
+
+.log_in_modal_main {
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.log_in {
+  width: 100%;
+  border-radius: 10px;
+  background: #191E2E;
+  text-align: center;
+  padding: 40px 0;
+}
+#log_in_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+#log_in_form input{
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+background: #1E2538;
+border: none;
+}
+.log_in{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+#login{
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  background: #F2F60F;
+  border: none;
+  color: #000;
+}
+#reg{
+  width: 300px;
+  border-radius: 10px;
+  padding: 20px;
+  background: #1E2538;
+  border: none;
+}
+.modal_exit_login{
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  cursor: url('/img/7968888_selection_cursor_adobe\ illustrator\ tool_icon.png'), auto;
+  padding: 20px;
+}
+.skrit{
+  opacity: 0;
+  transition:1s ease;
 }

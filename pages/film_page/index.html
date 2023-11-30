@@ -9,19 +9,67 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    
     <div class="container">
+
         <header></header>
         <div class="lil_cont">
             <div class="movie_info_box">
                 <img class="j" src="/img/movie_poster.png" alt="">
                 <div class="movie_info_box_right">
-                    <p>Побег из Претории</p>
-                    <p>Двое борцов за свободу отбывают срок в одной из самых строгих тюрем мира — в «Претории». Вместе с другими узниками они планируют дерзкий и опасный побег. Но придумать план — это только первый шаг. Шаг второй — реализация плана.</p>
+                    <div class="path">
+                        <p>Главная</p>
+                        <img src="/img/right_arrow.png" alt="">
+                        <p>Фильмы</p>
+                        <img src="/img/right_arrow.png" alt="">
+                        <p id="name_info_lil">Побег из Претории</p>
+                    </div>
+
+
+                    <h1 id="name_info">Побег из Претории</h1>
+                    <div id="rate">
+                        <canvas id="myPieChart" width="40" height="40"></canvas>
+                        <p id="tmdb_rate">8,6</p>
+                    </div>
+
+                    <p id="description_info">Двое борцов за свободу отбывают срок в одной из самых строгих тюрем мира — в «Претории». Вместе с другими узниками они планируют дерзкий и опасный побег. Но придумать план — это только первый шаг. Шаг второй — реализация плана.</p>
+                    <div id="bottom_info">
+                        <button id="watch_trailer">
+                            <img width="14px" src="/img/play.png" alt="">
+                            <p>Смотреть трейлер</p>
+                        </button>
+                        <img src="/img/   .png" alt="">
+                    </div>
                 </div>
             </div>
+            <div id="main_movie_info">
+                <div class="ratings">
+                    <img src="/img/Лайк.png" alt="">
+                    <img src="/img/Дисайк.png" alt="">
+                    <img src="/img/like.png" alt="">
+                    <p>В избранном у 37933 человек </p>
+                </div>
+                <div class="detailed_info_movie">
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <div class="now_on_kino_filter main_role">
+            <h2>В главных ролях:</h2>
+            <a id="a" href="#">
+                <p>Все актёры</p>
+                <img src="/img/Arrow 1.png" alt="">
+              </a>
+          </div>
     </div>
-    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module" src="./index.js"></script>
     <script src="/modules/header.js"></script>
+
+      
 </body>
 </html>

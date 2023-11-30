@@ -13,3 +13,4 @@ getData("/genre/movie/list")
 
 
 
+localStorage.setItem("user",JSON.stringify("lol") )
