@@ -1,6 +1,9 @@
 
 import { getData } from "/modules/https.js";
-let see_all = document.querySelector(".see_all")
+let see_all= document.querySelector(".see_all")
+if (see_all==null) {
+    
+}
 let togle = true
 let logo = document.querySelector('.logo')
 let new_films = document.querySelector(".new_films")
@@ -131,7 +134,16 @@ export function reload(arr, place, genres,times) {
         });
 
 
-
+        function getCurrentYear() {
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear();
+            return currentYear;
+        }
+        
+        // Пример использования
+        const year = getCurrentYear();
+        console.log('Текущий год:', year);
+        
         getData(`/person/popular`)
             .then(res => {
                 popular_person_top.innerHTML = ""
@@ -141,12 +153,18 @@ export function reload(arr, place, genres,times) {
                 top_two_text[1].innerHTML = res.results[1].name
 
                 res.results.slice(2).forEach(element => {
-                    popular_person_top.innerHTML += `<div>
+                    popular_person_top.innerHTML += `<div id =${element.id}>
             <span class="popular_person_top_text">
               <p>${element.name}</p>
             </span>
             <p>${res.results.slice(2).indexOf(element) + 3 + "-е место"}</p>
             </div>`
+                });
+                let pop_person = document.querySelectorAll(".popular_person_top div")
+                pop_person.forEach(person => {
+                    person.onclick = () =>{
+                        location.assign(`/pages/actor_page/?id=${person.id}`)
+                    }
                 });
             })
     });

@@ -20,7 +20,8 @@ body {
 
 .flex {
   display: flex;
-
+  flex-direction: column;
+  gap: 20px;
 }
 
 .leftheader {
@@ -274,7 +275,7 @@ body:after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 25px 0 50px;
+  margin: 25px 0 25px;
 }
 
 .likes_dislikes {
@@ -403,7 +404,7 @@ iframe {
   background-image: url(/img/ad.png);
   border-radius: 10px;
   position: relative;
-
+  margin-top: 50px;
 }
 
 .blue_ad {
@@ -416,6 +417,7 @@ iframe {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 footer {
@@ -725,27 +727,31 @@ footer div {
   text-align: center;
   padding: 40px 0;
 }
-#log_in_form{
+
+#log_in_form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-#log_in_form input{
+
+#log_in_form input {
   width: 300px;
   border-radius: 10px;
   padding: 20px;
-background: #1E2538;
-border: none;
+  background: #1E2538;
+  border: none;
 }
-.log_in{
+
+.log_in {
   display: flex;
   gap: 20px;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-#login{
+
+#login {
   width: 300px;
   border-radius: 10px;
   padding: 20px;
@@ -753,23 +759,119 @@ border: none;
   border: none;
   color: #000;
 }
-#reg{
+
+#reg {
   width: 300px;
   border-radius: 10px;
   padding: 20px;
   background: #1E2538;
   border: none;
 }
-.modal_exit_login{
+
+.modal_exit_login {
   background: none;
   border: 0;
   position: absolute;
   top: 20px;
-  right: 20px; 
+  right: 20px;
   cursor: url('/img/7968888_selection_cursor_adobe\ illustrator\ tool_icon.png'), auto;
   padding: 20px;
 }
-.skrit{
+
+.skrit {
   opacity: 0;
-  transition:1s ease;
+  transition: 1s ease;
+}
+
+.years {
+  display: flex;
+  gap: 10px;
+}
+
+.popular_films {
+  margin: 30px 0 50px;
+  height: 500px;
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.popular_films .relative {
+  flex-shrink: 0;
+  height: 90%;
+  width: 300px;
+}
+
+.news {
+  width: 100%;
+}
+
+.flex_normal {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.flex_start {
+  /* width: 200px; */
+  display: flex;
+  align-items: flex-start;
+  width: 200px;
+}
+
+.detailed_info_movie {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  font-size: 14px;
+  margin: 50px 0;
+}
+
+.rejisor {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  background: rgba(54, 87, 203, 0.30);
+}
+.main_roles{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 400px 400px;
+  column-gap: 30px;
+  margin: 50px 0 100px;
+}
+.main_roles img{
+  width: 100%;
+}
+.movie_trailer{
+  margin: 50px 0;
+}
+.actor_mainfo{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-between;
+}
+.actor_mainfo_right{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.actor_image{
+  width: 300px;
+}
+.best_films{
+  margin: 30px 0 50px;
+  height: 500px;
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+.best_films .relative{
+  width: 200px;
+  flex-shrink: 0;
+  height: 90%;
+  width: 300px;
 }

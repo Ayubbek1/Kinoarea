@@ -21,3 +21,13 @@ header.innerHTML = `
 <div class="sigin">Войти</div>
 </div>
 `
+console.log();
+if (JSON.parse(localStorage.getItem("user_avatar")).lenght !=="" ) {
+  let sigin = document.querySelector('.sigin')
+  sigin.innerHTML = `
+  <img width="25px" src="${JSON.parse(localStorage.getItem("user_avatar"))}" alt="">
+  <p>${JSON.parse(localStorage.getItem("user_name"))}</p>
+  
+  `
+
+}

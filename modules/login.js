@@ -56,7 +56,6 @@ if (user_auth) {
     })
         .then(res => res.json())
         .then(res => {
-            console.log(res.avatar.gravatar.hash)
             localStorage.setItem("user_avatar",JSON.stringify(`https://www.gravatar.com/avatar/${res.avatar.gravatar.hash}`) )
             localStorage.setItem("user_name",JSON.stringify(res.username))
         })
@@ -64,7 +63,6 @@ if (user_auth) {
 let log_in_modal = document.querySelector(".log_in_modal")
 let sigin = document.querySelector(".sigin")
 let modal_exit_login = document.querySelector(".modal_exit_login")
-console.log(sigin);
 sigin.onclick =() =>{
     document.body.style.overflowY = "hidden"
     log_in_modal.style.display = "block"

@@ -13,8 +13,15 @@ let description_info = document.querySelector("#description_info")
 let tmdb_rate = document.querySelector('#tmdb_rate')
 let name_info_lil = document.querySelector("#name_info_lil")
 let watch_trailer = document.querySelector("#watch_trailer")
+let iframe = document.querySelector(".movie_trailer")
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+watch_trailer.onclick = () =>{
+    iframe.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    })
 }
 fetch("https://api.themoviedb.org/3/movie/" + id, {
     headers: {
@@ -24,15 +31,13 @@ fetch("https://api.themoviedb.org/3/movie/" + id, {
     .then(res => res.json())
     .then(res => {
         console.log(res);
-        watch_trailer.onclick = () =>{
-            getData(`/movie/${id}/videos`)
-            .then(res => {
 
-                location.assign(`https://www.youtube.com/embed/${res.results[getRandomInt(0, res.results.length - 1)].key}`)
-                
+        getData(`/movie/${id}/videos`)
+            .then(res => {
+                iframe.src = `https://www.youtube.com/embed/${res.results[getRandomInt(0, res.results.length - 1)].key}`
             })
-            
-        }
+
+
         img.src = `https://image.tmdb.org/t/p/w500${res.poster_path}`
         name_info.innerHTML = res.original_title
         name_info_lil.innerHTML = res.original_title
@@ -57,4 +62,25 @@ fetch("https://api.themoviedb.org/3/movie/" + id, {
             data: data
         });
     })
+let main_roles = document.querySelector(".main_roles")
 
+getData(`/movie/${id}/credits`)
+    .then(res => {
+        main_roles.innerHTML = ""
+        console.log(res.cast.slice(0, 10));
+        res.cast.slice(0, 10).forEach(actor => {
+            main_roles.innerHTML += `
+            <div id="${actor.id}" class="actor_click">
+            <img src="https://image.tmdb.org/t/p/w780${actor.profile_path}" alt="">
+            <p>${actor.name}</p>
+        </div>
+            
+            `
+        });
+        let actor_clicks = document.querySelectorAll(".actor_click")
+        actor_clicks.forEach(actor => {
+            actor.onclick = () => {
+                location.assign(`/pages/actor_page/?id=${actor.id}`)
+            }
+        });
+    })
